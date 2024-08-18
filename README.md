@@ -1,68 +1,106 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Audit Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Deskripsi
+Aplikasi web **Audit Management System** dirancang untuk mendukung proses audit internal perusahaan, mulai dari pembuatan Surat Perintah Pelaksanaan Audit (SP2A), pembuatan Kertas Kerja Audit (KKA), hingga pengelolaan dan review laporan hasil audit. Aplikasi ini telah mendukung teknologi Progressive Web Apps (PWA), sehingga dapat diinstal dan diakses secara offline.
 
-## About Laravel
+## Fitur Utama
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 1. Pembuatan SP2A
+- **Akses Pembuatan SP2A:**
+  - Hanya akun dengan status **Senior Manager** dari berbagai bidang yang dapat membuat Surat Perintah Pelaksanaan Audit (SP2A).
+  - Bidang yang memiliki akses:
+    - Senior Manager Quality Assurance
+    - Senior Manager Akuntansi dan Keuangan
+    - Senior Manager Manajemen dan Lingkungan
+    - Senior Manager Teknik dan Operasi
+    - Senior Manager Komersil
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Proses Pembuatan SP2A:**
+  - Halaman pembuatan SP2A
+  - Input jadwal audit
+  - Input daftar auditor
+  - Input daftar auditi
+  - Preview Surat SP2A
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 2. Pembuatan KKA
+- **Akses Pembuatan KKA:**
+  - Hanya auditor yang dipilih oleh Ketua Bidang pada saat pembuatan SP2A yang dapat membuat Kertas Kerja Audit (KKA).
+  - Auditor yang dipilih akan melihat form pembuatan KKA di akun mereka setelah login.
 
-## Learning Laravel
+- **Proses Pembuatan KKA:**
+  - Login sebagai auditor terpilih (contoh: Pak Ahmad).
+  - Menu pembuatan KKA akan tersedia di dashboard auditor.
+  - Auditor dapat membuat dan mengisi KKA yang terkait dengan SP2A yang ditugaskan.
+  - Tersedia tombol untuk mengirim KKA yang telah selesai dikerjakan kepada Ketua Tim dan Pengawas untuk direview.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Output KKA:**
+  - Output tampilan hasil Kertas Kerja Audit.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 3. Review KKA oleh Ketua Tim dan Pengawas
+- **Akses Review KKA:**
+  - Setelah auditor mengirim KKA untuk direview, KKA tersebut akan masuk ke akun Pengawas yang bersangkutan.
+  - Ketua Tim dan Pengawas memiliki akses untuk memberikan catatan dan feedback atas KKA yang telah dibuat.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Proses Review KKA:**
+  - Pengawas dan Ketua Tim dapat login dan mengakses KKA yang perlu direview melalui menu sidebar.
+  - Form catatan untuk Pengawas dan Ketua Tim tersedia untuk memberikan feedback.
+  - Auditor dapat melihat feedback yang diberikan melalui menu sidebar di akun mereka.
 
-## Laravel Sponsors
+- **Output Review KKA:**
+  - KKA yang statusnya diterima akan diproses lebih lanjut menjadi Laporan Hasil Audit (LHAP).
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 4. Review LHAP oleh General Manager
+- **Akses Review LHAP:**
+  - KKA yang telah diterima oleh Ketua Tim atau Pengawas akan menjadi LHAP dan masuk ke akun General Manager untuk direview lebih lanjut.
+  - Hanya akun dengan jabatan **General Manager** yang memiliki akses untuk mereview LHAP.
 
-### Premium Partners
+- **Proses Review LHAP:**
+  - General Manager dapat melihat dan mereview LHAP melalui menu yang tersedia.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 5. Teknologi PWA (Progressive Web Apps)
+- **Instalasi PWA:**
+  - Aplikasi web ini mendukung instalasi sebagai PWA, sehingga dapat dipasang di perangkat pengguna.
+  - Tampilan aplikasi saat diinstal akan menyesuaikan dengan perangkat yang digunakan.
 
-## Contributing
+- **Output PWA:**
+  - Ini adalah tampilan aplikasi web setelah diinstal di laptop.
+  - Tampilan aplikasi setelah terpasang di komputer pengguna.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Cara Instalasi
+1. Clone repositori ini ke direktori lokal Anda:
+    ```bash
+    git clone https://github.com/username/repository.git
+    ```
+2. Masuk ke direktori proyek:
+    ```bash
+    cd directory-name
+    ```
+3. Install dependencies:
+    ```bash
+    composer install
+    ```
+4. Konfigurasi environment variables:
+    - Salin file `.env.example` menjadi `.env`.
+    - Atur variabel seperti `DB_CONNECTION`, `DB_DATABASE`, `DB_USERNAME`, dan `DB_PASSWORD`.
 
-## Code of Conduct
+5. Jalankan migrasi database:
+    ```bash
+    php artisan migrate
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+6. Jalankan aplikasi:
+    ```bash
+    php artisan serve
+    ```
+    Akses aplikasi melalui [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
-## Security Vulnerabilities
+## Kontribusi
+Kontribusi sangat dihargai. Silakan buat pull request atau ajukan issue untuk perbaikan atau fitur baru.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Lisensi
+Aplikasi ini dilisensikan di bawah lisensi [MIT](LICENSE).
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-##
-ini adalah 
+## Kontak
+Untuk informasi lebih lanjut, hubungi:
+- **Nama:** [Nama Anda]
+- **Email:** [email@domain.com]
